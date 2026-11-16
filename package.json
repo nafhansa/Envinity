@@ -1,0 +1,15 @@
+{
+  "name": "envinity",
+  "private": true,
+  "type": "module",
+  "description": "Envinity: share .env files with your team, zero-knowledge. Landing + dashboard (apps/web) and API (apps/api).",
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "db:up": "docker compose up -d",
+    "migrate": "npm --prefix apps/api run migrate",
+    "dev:api": "npm --prefix apps/api run dev",
+    "dev:web": "npm --prefix apps/web run dev",
+    "test": "npm --prefix apps/api test",
+    "build": "npm --prefix apps/web run build"
+  }
+}
