@@ -1,0 +1,43 @@
+---
+// Static marquee: pure CSS animation, no JavaScript shipped.
+const items = [
+  'Android',
+  'iOS',
+  'macOS',
+  'Windows',
+  'Linux',
+  'AES-256-GCM',
+  'Zero-knowledge',
+  'Auto-expiring tickets',
+]
+---
+
+<div class="strip" aria-label="Supported platforms and security standards">
+  <div class="marquee css-marquee">
+    {items.map((label) => <span>{label}</span>)}
+    {items.map((label) => <span aria-hidden="true">{label}</span>)}
+  </div>
+</div>
+
+<style>
+  .css-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  .css-marquee span::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .css-marquee {
+      animation: none;
+    }
+  }
+</style>

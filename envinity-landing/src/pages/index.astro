@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro'
+import Strip from '../components/Strip.astro'
+import Footer from '../components/Footer.astro'
+import Nav from '../components/Nav.jsx'
+import Hero from '../components/Hero.jsx'
+import HowItWorks from '../components/HowItWorks.jsx'
+import Expiry from '../components/Expiry.jsx'
+import { CTA, FAQ, Platforms, Pricing, Security } from '../components/Sections.jsx'
+---
+
+<Base title="Envinity | Share .env files with your team, safely">
+  <a href="#main" class="sr-only">Skip to content</a>
+  <!-- above the fold: hydrate immediately -->
+  <Nav client:load />
+  <main id="main">
+    <Hero client:load />
+    <Strip />
+    <!-- below the fold: hydrate when scrolled into view -->
+    <HowItWorks client:visible />
+    <Expiry client:visible />
+    <Security client:visible />
+    <Platforms client:visible />
+    <Pricing client:visible />
+    <FAQ client:visible />
+    <CTA client:visible />
+  </main>
+  <Footer />
+</Base>

@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro'
+import Dashboard from '../dashboard/Dashboard.jsx'
+---
+
+<Base title="Dashboard | Envinity" description="Your Envinity tickets, shares and access log.">
+  <!--
+    The dashboard is a client-only React app: it is per-user, interactive, and holds secrets
+    in memory, so there is nothing useful to pre-render on the server.
+  -->
+  <Dashboard client:only="react" />
+  <noscript>
+    <p style="padding: 24px">The Envinity dashboard needs JavaScript enabled.</p>
+  </noscript>
+</Base>
